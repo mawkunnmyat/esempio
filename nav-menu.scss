@@ -1,0 +1,142 @@
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.newfirst {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  color: #1d1f20;
+  left: 0;
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  input {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    &:checked {
+      ~ {
+        #newoverlay {
+          background: #ffffff;
+          bottom: 0;
+          left: 0;
+          height: 100vh;
+          position: fixed;
+          right: 0;
+          top: 0;
+          width: 100vw;
+          z-index: -1;
+        }
+        ul {
+          margin: 0;
+          max-height: inherit;
+          opacity: 1;
+        }
+      }
+    }
+  }
+  label {
+    cursor: pointer;
+    display: block;
+    font: 2em/1 "Oswald", sans-serif;
+    padding: 0.5em;
+    #menu-icon {
+      float: right;
+    }
+  }
+  input[type="checkbox"] {
+    &:checked {
+      + {
+        label {
+          #menu-icon {
+            background: transparent;
+            &:before {
+              top: 0;
+              transform: rotate(-45deg);
+            }
+            &:after {
+              bottom: 0;
+              transform: rotate(45deg);
+            }
+          }
+        }
+      }
+    }
+  }
+  ul {
+    font-size: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    text-align: center;
+    a {
+      text-decoration: none;
+      display: block;
+      padding: 15px 49px;
+      border-bottom: 1px solid #ffffff;
+      background: #8d6e63;
+      text-align: left;
+      font-size: 12px;
+      font-family: Meiryo;
+      letter-spacing: 0px;
+      color: #ffffff;
+      opacity: 1;
+    }
+  }
+}
+.newcontainer {
+  margin: 0 auto;
+  max-width: 80em;
+}
+.newlogo {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 55px;
+  text-align: center;
+  opacity: 1;
+}
+#menu-icon {
+  background: #1d1f20;
+  border-radius: 0.05em;
+  height: 0.1em;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+  display: inline-block;
+  margin: 0.4em 0;
+  max-width: 1em;
+  position: relative;
+  &:before {
+    background: #1d1f20;
+    border-radius: 0.05em;
+    height: 0.1em;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+    content: "";
+    left: 0;
+    position: absolute;
+    top: -0.4em;
+  }
+  &:after {
+    background: #1d1f20;
+    border-radius: 0.05em;
+    height: 0.1em;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+    content: "";
+    left: 0;
+    position: absolute;
+    bottom: -0.4em;
+  }
+}
+@media screen and (min-width: 561px) {
+  .newfirst {
+    display: none;
+  }
+}
